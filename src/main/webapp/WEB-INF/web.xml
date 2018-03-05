@@ -25,7 +25,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	  </init-param>
 	  <init-param>
 	      <param-name>contextConfigLocation</param-name>
-	      <param-value>org.tamil.kalanjiyam.config.ServletConfig</param-value>
+	      <param-value>com.circumfusion.ApplicationLauncher</param-value>
 	  </init-param>
 	  <load-on-startup>1</load-on-startup>
 	</servlet>
