@@ -1,0 +1,225 @@
+html,
+body {
+
+  height: 100%;
+  background-color: #F0F4F7 !important;
+
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+
+
+/* Wrapper for page content to push down footer */
+/*#wrap {
+  min-height: 100%;
+  height: 100%;
+
+  margin: 0 auto -82px 0;
+
+  padding: 0 0 80px 0;
+}*/
+
+
+.navbar-nav>li>a:hover {
+
+   background-color: #f5f7fa !important;
+   border-bottom: 2px solid #31708f !important;
+}
+
+/* Set the fixed height of the footer here */
+/*#footer {
+  height: 10%;
+  background-color: #f5f5f5;
+}
+
+
+#wrap > .center-container {
+  padding: 50px 0 0 0;
+  margin:0;
+}
+
+#footer > .container {
+  padding-top:5px
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.center-container {
+  height:100%;
+  display: table;
+  width:100%;
+  margin:0;
+}
+
+.center-row {
+  height:50%;
+  width:100%;
+  display: table-row;
+}
+
+.center-row > div {
+  height:100%;
+  width:50%;
+  display: table-cell;
+  border:1px solid #eee
+}*/
+
+/*----------------------------------------------------------------*/
+
+
+
+.headerDiv{
+    background-color: #fff !important;
+    height: 7%;
+}
+
+.headerLogo{
+       width: 100%;
+    padding-left: 10px;
+    /*height: 40px;*/
+}
+
+.subHeaderDiv{
+    height: 7%;
+    background: #f5f7fa !important;
+    border-bottom: 1px solid #d0d8e7;
+    box-shadow: 0 2px 2px rgba(0,0,0,.08);
+}
+
+
+.navbar-nav > li > a {
+    padding-top: 15px !important;
+padding-bottom: 11px !important;
+}
+
+
+.footerDiv{
+
+    /*height: 5%;*/
+    /*padding-top: 0.5%;*/
+    /*border: 1px solid #ccc;*/
+}
+
+.contentDiv{
+    /*background-color: #fff ;*/
+    height: 87%;
+}
+.cardStyle{
+    background-color: #fff;
+    padding-top: 1%;
+    height:40%;
+}
+
+.cardStyledata{
+    background-color: #fff;
+    padding-top: 1%;
+    height:50%;
+}
+
+.cardStyle1{
+
+    border:1px solid #cecaca;
+    height:60%;
+    padding-top: 2%;
+}
+
+.cardStyle2{
+
+    border:1px solid #cecaca;
+    height:70px;
+
+    padding-top: 2%;
+}
+.cardStyleImg{
+
+        border:1px solid #cecaca;
+    height:55%;
+    /*padding-top: 2%;*/
+}
+.headerLabel{
+    margin-bottom: 20px;
+    color: #274E74;
+    font-size: 150%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.title1{
+
+    color: #274E74;
+    font-size: 140%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+hr.hrule{
+    border-top: 1px solid #cecaca;
+    width: 97%;
+}
+
+hr.hrule1{
+    border-top: 1px solid #cecaca;
+}
+hr.hrule2{
+    border-top: 1px solid rgba(204, 204, 204, 0.54);
+        margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+hr.hrule3{
+    border-top: 1px solid #ccc;
+    width: 97%;
+    margin-top: 5px !important;
+
+  margin-bottom: 5px !important;
+}
+
+
+.labelHeader{
+    font-weight: 600;
+    font-size: 115%;
+    padding-bottom: 1%;
+}
+.btn-info {
+    border-color : -webkit-linear-gradient(left, #5396fe , #61f6e0) !important;
+    border-color: -o-linear-gradient(right, #5396fe, #33ffc4) !important;
+    border-color: -moz-linear-gradient(right, #5396fe, #33ffc4) !important;
+    border-color: linear-gradient(to right, #5396fe , #33ffc4) !important;
+    background: #5396fe !important;
+    background: -webkit-linear-gradient(left, #5396fe , #61f6e0) !important;
+    background: -o-linear-gradient(right, #5396fe, #33ffc4) !important;
+    background: -moz-linear-gradient(right, #5396fe, #33ffc4) !important;
+    background: linear-gradient(to right, #5396fe , #33ffc4) !important;
+    border-radius: 24px !important;
+    color: #fff !important;
+}
+
+
+.btn-default {
+    color: rgba(51, 51, 51, 0.74) !important;
+    background-color: rgba(204, 204, 204, 0.73) !important;
+    border-color: #ccc !important;
+}
+
+.labelInput{
+    height:5%;
+}
+
+.btn-warn{
+
+    background-color: transparent !important;;
+    border-color: #ccc !important;;
+    border-radius: 20px !important;;
+}
+
+.fa-2x {
+    font-size: 165% !important;
+    color: #9b8e8e !important;
+}
+
+.header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #fff;
+}
+
+.container {
+  clear: left;
+  padding-top: 20px;
+}

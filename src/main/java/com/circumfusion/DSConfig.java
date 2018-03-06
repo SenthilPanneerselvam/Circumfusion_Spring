@@ -21,9 +21,6 @@ public class DSConfig {
 	        String dbUrl = "jdbc:mysql://" + dbUri.getHost() + dbUri.getPath();
 
 	        MysqlDataSource basicDataSource = new MysqlDataSource();
-	        System.out.println(username);
-	        System.out.println(password);
-	        System.out.println(dbUrl);
 	        basicDataSource.setUrl(dbUrl);
 	        basicDataSource.setUser(username);
 	        basicDataSource.setPassword(password);
