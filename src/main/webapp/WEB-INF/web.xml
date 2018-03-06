@@ -10,10 +10,6 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	         org.springframework.web.context.support.AnnotationConfigWebApplicationContext
 	      </param-value>
 	</context-param>
-	  <context-param>
-	      <param-name>contextConfigLocation</param-name>
-	      <param-value>com.circumfusion.ApplicationLauncher</param-value>
-	  </context-param>
 	<servlet>
 	  <servlet-name>spring-mvc-dispatcher</servlet-name>
 	  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
