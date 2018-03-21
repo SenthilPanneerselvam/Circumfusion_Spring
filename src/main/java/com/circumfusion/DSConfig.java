@@ -14,8 +14,8 @@ public class DSConfig {
 
 	    @Bean
 	    public MysqlDataSource dataSource() throws URISyntaxException {
-	    		URI dbUri = new URI("mysql://root:Aspire@localhost:3306/circumfusion");
-//	    		URI dbUri = new URI(System.getenv("CLEARDB_DATABASE_URL"));
+	    		//URI dbUri = new URI("mysql://root:Aspire@localhost:3306/circumfusion");
+	    		URI dbUri = new URI(System.getenv("CLEARDB_DATABASE_URL"));
 
 	        String username = dbUri.getUserInfo().split(":")[0];
 	        String password = dbUri.getUserInfo().split(":")[1];
