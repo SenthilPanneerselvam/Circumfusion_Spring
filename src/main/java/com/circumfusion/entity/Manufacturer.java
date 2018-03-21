@@ -33,7 +33,7 @@ public class Manufacturer implements Serializable {
 
 	private String orgName;
 
-	private Integer phoneCode;
+	private String phoneCode;
 
 	private Integer phoneNumber;
 
@@ -135,11 +135,11 @@ public class Manufacturer implements Serializable {
 		this.orgName = orgName;
 	}
 
-	public Integer getPhoneCode() {
+	public String getPhoneCode() {
 		return this.phoneCode;
 	}
 
-	public void setPhoneCode(Integer phoneCode) {
+	public void setPhoneCode(String phoneCode) {
 		this.phoneCode = phoneCode;
 	}
 

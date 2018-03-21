@@ -19,7 +19,7 @@ public class ManufactureRegistrationDTO {
 	
 	private String state;
 	
-	private Integer phoneCode;
+	private String phoneCode;
 	
 	private Long phoneNumber;
 	
@@ -105,11 +105,11 @@ public class ManufactureRegistrationDTO {
 		this.state = state;
 	}
 
-	public Integer getPhoneCode() {
+	public String getPhoneCode() {
 		return phoneCode;
 	}
 
-	public void setPhoneCode(Integer code) {
+	public void setPhoneCode(String code) {
 		this.phoneCode = code;
 	}
 

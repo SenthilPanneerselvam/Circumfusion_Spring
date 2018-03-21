@@ -6,14 +6,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.circumfusion.dto.ManufactureRegistrationDTO;
+import com.circumfusion.dto.UserDTO;
 import com.circumfusion.entity.Manufacturer;
 import com.circumfusion.entity.User;
+import com.circumfusion.exception.OrgAlreadyExistsException;
 import com.circumfusion.repo.ManufactureRepo;
 import com.circumfusion.repo.UserRepo;
 
 @Service
 @Transactional
 public class RegistrationService {
+	
+	@Autowired
+	UserService userService;
 	
 	@Autowired
 	UserRepo userRepo;
@@ -28,15 +33,18 @@ public class RegistrationService {
 
 	public void registerManufacturer(ManufactureRegistrationDTO dto) {
 		// save the user
-		User user = new User();
+		UserDTO user = new UserDTO();
 		user.setUsername(dto.getUserId());
 		user.setPassword(dto.getPassword());
 		user.setType(MANUFACTURER_TYPE);
 		user.setStatus(true);
-		userRepo.save(user);
+		UserDTO newUser = userService.createUser(user);
 		// save the manufacturer
 		Manufacturer manufacturer = beanMapper.map(dto, Manufacturer.class);
-		manufacturer.setUser(user);
+		if(manRepo.findByOrgName(dto.getOrgName()) != null) {
+			throw new OrgAlreadyExistsException();
+		}
+		manufacturer.setUser(userRepo.findOne(newUser.getId()));
 		manRepo.save(manufacturer);
 	}
 	
