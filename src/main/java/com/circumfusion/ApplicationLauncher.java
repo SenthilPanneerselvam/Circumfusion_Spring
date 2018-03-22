@@ -17,6 +17,7 @@ public class ApplicationLauncher extends SpringBootServletInitializer {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ApplicationLauncher.class, args);
+		//My test commit check
 	}
 	
 	@Bean
