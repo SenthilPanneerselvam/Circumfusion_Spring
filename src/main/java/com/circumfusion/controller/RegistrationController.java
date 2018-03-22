@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.circumfusion.dto.ManufactureRegistrationDTO;
+import com.circumfusion.dto.ServiceIndustryDTO;
 import com.circumfusion.service.RegistrationService;
 
 @RestController
@@ -19,6 +20,11 @@ public class RegistrationController {
 	@RequestMapping(value="/manufacturer", method=RequestMethod.POST)
 	public void registerManufacturer(@RequestBody ManufactureRegistrationDTO registrationDTO) {
 		registrationService.registerManufacturer(registrationDTO);
+	}
+	
+	@RequestMapping(value="/serviceindustry", method=RequestMethod.POST)
+	public void registerServiceIndustry(@RequestBody ServiceIndustryDTO serviceIndustryDTO) {
+		registrationService.registerServiceIndustry(serviceIndustryDTO);
 	}
 	
 }
