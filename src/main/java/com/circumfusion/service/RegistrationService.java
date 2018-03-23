@@ -10,7 +10,6 @@ import com.circumfusion.dto.ServiceIndustryDTO;
 import com.circumfusion.dto.UserDTO;
 import com.circumfusion.entity.Manufacturer;
 import com.circumfusion.entity.ServiceIndustry;
-import com.circumfusion.entity.User;
 import com.circumfusion.exception.OrgAlreadyExistsException;
 import com.circumfusion.repo.ManufactureRepo;
 import com.circumfusion.repo.ServiceIndustryRepo;
