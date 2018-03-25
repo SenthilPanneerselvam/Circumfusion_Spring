@@ -3,9 +3,12 @@ package com.circumfusion;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import javax.servlet.Filter;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.circumfusion.filter.AuthenticationFilter;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 @Configuration
@@ -14,7 +17,7 @@ public class DSConfig {
 
 	    @Bean
 	    public MysqlDataSource dataSource() throws URISyntaxException {
-	    		URI dbUri = new URI("mysql://root:Aspire@localhost:3306/circumfusion");
+	    		URI dbUri = new URI("mysql://root:root@localhost:3306/circumfusion");
 	    		//URI dbUri = new URI(System.getenv("CLEARDB_DATABASE_URL"));
 
 	        String username = dbUri.getUserInfo().split(":")[0];
@@ -27,6 +30,11 @@ public class DSConfig {
 	        basicDataSource.setPassword(password);
 
 	        return basicDataSource;
+	    }
+	    
+	    @Bean
+	    public Filter authenticationFilter() {
+	    		return new AuthenticationFilter();
 	    }
 	    
 }
