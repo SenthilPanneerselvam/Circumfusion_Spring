@@ -11,6 +11,8 @@ public class UserDTO {
 	private boolean status;
 
 	private String type;
+	
+	private String loginCookieValue;
 
 	public String getPassword() {
 		return password;
@@ -50,6 +52,14 @@ public class UserDTO {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getLoginCookieValue() {
+		return loginCookieValue;
+	}
+
+	public void setLoginCookieValue(String loginCookieValue) {
+		this.loginCookieValue = loginCookieValue;
 	}
 	
 }
