@@ -18,7 +18,6 @@ import com.circumfusion.entity.User;
 import com.circumfusion.exception.NotAuthenticatedException;
 import com.circumfusion.service.LoginCookieService;
 
-@WebFilter( urlPatterns = {"/*"} )
 public class AuthenticationFilter implements Filter 
 {
 	@Autowired
