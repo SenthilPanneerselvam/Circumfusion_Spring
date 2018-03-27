@@ -29,9 +29,4 @@ public class ApplicationLauncher extends SpringBootServletInitializer {
 		return new DozerBeanMapper();
 	}
 	
-	@Bean
-    public Filter authenticationFilter() {
-    		return new AuthenticationFilter();
-    }
-	
 }
