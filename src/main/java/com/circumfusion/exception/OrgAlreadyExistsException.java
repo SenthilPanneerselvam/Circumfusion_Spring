@@ -2,6 +2,10 @@ package com.circumfusion.exception;
 
 public class OrgAlreadyExistsException extends AlreadyExistException {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String TYPE = "Organization";
 
 	@Override

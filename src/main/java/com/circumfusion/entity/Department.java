@@ -8,7 +8,6 @@ import javax.persistence.Table;
 @Table(name="department")
 public class Department {
 	
-private static final long serialVersionUID = 1L;
 	
 	@Id
 	private int id;

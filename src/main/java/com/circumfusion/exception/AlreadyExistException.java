@@ -6,6 +6,11 @@ import com.circumfusion.infrastructure.AppException;
 
 public abstract class AlreadyExistException extends AppException {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public abstract String getEntityName();
 	
 	@Override

@@ -1,11 +1,15 @@
 package com.circumfusion;
 
+import javax.servlet.Filter;
+
 import org.dozer.DozerBeanMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+
+import com.circumfusion.filter.AuthenticationFilter;
 
 @SpringBootApplication
 public class ApplicationLauncher extends SpringBootServletInitializer {
@@ -24,5 +28,10 @@ public class ApplicationLauncher extends SpringBootServletInitializer {
 	public DozerBeanMapper beanMapper() {
 		return new DozerBeanMapper();
 	}
+	
+	@Bean
+    public Filter authenticationFilter() {
+    		return new AuthenticationFilter();
+    }
 	
 }
