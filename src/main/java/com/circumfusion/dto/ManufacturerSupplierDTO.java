@@ -1,11 +1,14 @@
 package com.circumfusion.dto;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ManufacturerSupplierDTO 
 {
 	private int id;
 	private int orgId;
+	private List<Integer> typeOfJobs;
 	private String isoCertification;
 	@JsonProperty
 	private boolean isMicro;
@@ -56,5 +59,11 @@ public class ManufacturerSupplierDTO
 	}
 	public void setLarge(boolean isLarge) {
 		this.isLarge = isLarge;
+	}
+	public List<Integer> getTypeOfJobs() {
+		return typeOfJobs;
+	}
+	public void setTypeOfJobs(List<Integer> typeOfJobs) {
+		this.typeOfJobs = typeOfJobs;
 	}
 }
