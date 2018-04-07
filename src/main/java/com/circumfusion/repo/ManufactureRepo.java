@@ -7,5 +7,6 @@ import com.circumfusion.entity.Manufacturer;
 public interface ManufactureRepo extends JpaRepository<Manufacturer, Integer>{
 	
 	public Manufacturer findByOrgName(String orgName);
+	public Manufacturer findByUserId(int userId);
 
 }

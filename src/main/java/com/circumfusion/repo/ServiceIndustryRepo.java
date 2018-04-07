@@ -7,4 +7,5 @@ import com.circumfusion.entity.ServiceIndustry;
 public interface ServiceIndustryRepo extends JpaRepository<ServiceIndustry, Integer>
 {
 	public ServiceIndustry findByOrgName(String orgName);
+	public ServiceIndustry findByUserId(int userId);
 }

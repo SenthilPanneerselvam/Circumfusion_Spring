@@ -13,6 +13,10 @@ public class UserDTO {
 	private String type;
 	
 	private String loginCookieValue;
+	
+	private String orgName;
+	
+	private int orgId;
 
 	public String getPassword() {
 		return password;
@@ -60,6 +64,22 @@ public class UserDTO {
 
 	public void setLoginCookieValue(String loginCookieValue) {
 		this.loginCookieValue = loginCookieValue;
+	}
+
+	public int getOrgId() {
+		return orgId;
+	}
+
+	public void setOrgId(int orgId) {
+		this.orgId = orgId;
+	}
+
+	public String getOrgName() {
+		return orgName;
+	}
+
+	public void setOrgName(String orgName) {
+		this.orgName = orgName;
 	}
 	
 }
