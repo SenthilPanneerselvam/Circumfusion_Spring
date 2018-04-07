@@ -1,6 +1,7 @@
 package com.circumfusion.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,10 +25,22 @@ public class ManufacturerController
 		manufacturerService.saveManufacturerFinanceInfo(manufacturerFinanceDTO);
 	}
 	
+	@RequestMapping(value="/finance/{orgId}", method= {RequestMethod.GET})
+	public ManufacturerFinanceDTO getManufacturerFinanceInfo(@PathVariable("orgId") Integer orgId)
+	{
+		return manufacturerService.getManufacturerFinanceInfo(orgId);
+	}
+	
 	@RequestMapping(value="/supplier", method= {RequestMethod.POST,RequestMethod.PUT})
 	public void saveManufacturerSupplierInfo(@RequestBody ManufacturerSupplierDTO manufacturerSupplierDTO)
 	{
 		manufacturerService.saveManufacturerSupplierInfo(manufacturerSupplierDTO);
+	}
+	
+	@RequestMapping(value="/supplier/{orgId}", method= {RequestMethod.GET})
+	public ManufacturerSupplierDTO getManufacturerSupplierInfo(@PathVariable("orgId") Integer orgId)
+	{
+		return manufacturerService.getManufacturerSupplierInfo(orgId);
 	}
 	
 	@RequestMapping(value="/technical", method= {RequestMethod.POST,RequestMethod.PUT})
@@ -36,4 +49,9 @@ public class ManufacturerController
 		manufacturerService.saveManufacturerTechnicalInfo(manufacturerTechnicalDTO);
 	}
 
+	@RequestMapping(value="/technical/{orgId}", method= {RequestMethod.GET})
+	public ManufacturerTechnicalDTO getManufacturerTechnicalInfo(@PathVariable("orgId") Integer orgId)
+	{
+		return manufacturerService.getManufacturerTechnicalInfo(orgId);
+	}
 }

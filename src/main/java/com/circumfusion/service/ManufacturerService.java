@@ -1,5 +1,6 @@
 package com.circumfusion.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.dozer.DozerBeanMapper;
@@ -50,6 +51,13 @@ public class ManufacturerService
 		manufacturerFinanceRepo.save(manufacturerFinance);
 	}
 	
+	public ManufacturerFinanceDTO getManufacturerFinanceInfo(int orgId)
+	{
+		ManufacturerFinance manufacturerFinance = manufacturerFinanceRepo.findByOrgId(orgId);
+		ManufacturerFinanceDTO manufacturerFinanceDTO = beanMapper.map(manufacturerFinance, ManufacturerFinanceDTO.class);
+		return manufacturerFinanceDTO;
+	}
+	
 	public void saveManufacturerSupplierInfo(ManufacturerSupplierDTO manufacturerSupplierDTO)
 	{
 		// Save type of Jobs
@@ -70,6 +78,24 @@ public class ManufacturerService
 		// Save supplier details
 		ManufacturerSupplier manufacturerSupplier = beanMapper.map(manufacturerSupplierDTO, ManufacturerSupplier.class);
 		manufacturerSupplierRepo.save(manufacturerSupplier);
+	}
+	
+	public ManufacturerSupplierDTO getManufacturerSupplierInfo(int orgId)
+	{
+		List<Integer> typeOfJobs = new ArrayList<Integer>();
+		List<ManufacturerSupplierJobs> manufacturerSupplierJobs = manufacturerSupplierJobsRepo.findByOrgId(orgId);
+		if(manufacturerSupplierJobs != null)
+		{
+			for(ManufacturerSupplierJobs manufacturerSupplierJob:manufacturerSupplierJobs)
+			{
+				typeOfJobs.add(manufacturerSupplierJob.getClusterTypeId());
+			}
+		}
+		
+		ManufacturerSupplier manufacturerSupplier = manufacturerSupplierRepo.findByOrgId(orgId);
+		ManufacturerSupplierDTO manufacturerSupplierDTO = beanMapper.map(manufacturerSupplier, ManufacturerSupplierDTO.class);
+		manufacturerSupplierDTO.setTypeOfJobs(typeOfJobs);
+		return manufacturerSupplierDTO;
 	}
 	
 	public void saveManufacturerTechnicalInfo(ManufacturerTechnicalDTO manufacturerTechnicalDTO)
@@ -94,5 +120,33 @@ public class ManufacturerService
 				manufacturerTechnicalRepo.save(manufacturerTechnical);
 			}
 		}
+	}
+	
+	public ManufacturerTechnicalDTO getManufacturerTechnicalInfo(int orgId)
+	{
+		ManufacturerTechnicalDTO manufacturerTechnicalDTO = new ManufacturerTechnicalDTO();
+		//Get product manufactured details
+		String productsManufactured = "";
+		List<ManufacturerTechnicalProducts> manufacturerTechnicalProductsList = manufacturerTechnicalProductsRepo.findByOrgId(orgId);
+		if(manufacturerTechnicalProductsList != null && manufacturerTechnicalProductsList.size() > 0)
+		{
+			productsManufactured = manufacturerTechnicalProductsList.get(0).getProductsManufactured();
+		}
+		manufacturerTechnicalDTO.setProductsManufactured(productsManufactured);
+		manufacturerTechnicalDTO.setOrgId(orgId);
+		
+		//Get facility details
+		List<ManufacturerFacilityDTO> facilityDTOs = new ArrayList<ManufacturerFacilityDTO>();
+		List<ManufacturerTechnical> manufacturerTechnicalList = manufacturerTechnicalRepo.findByOrgId(orgId);
+		if(manufacturerTechnicalList != null && manufacturerTechnicalList.size() > 0)
+		{
+			for(ManufacturerTechnical manufacturerTechnical:manufacturerTechnicalList)
+			{
+				ManufacturerFacilityDTO facilityDTO = beanMapper.map(manufacturerTechnical, ManufacturerFacilityDTO.class);
+				facilityDTOs.add(facilityDTO);
+			}
+		}
+		manufacturerTechnicalDTO.setFacilityDTOs(facilityDTOs);
+		return manufacturerTechnicalDTO;
 	}
 }
