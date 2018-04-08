@@ -3,6 +3,9 @@ package com.circumfusion.dto;
 
 public class ManufactureRegistrationDTO {
 	
+	//Id of Manufacturer
+	private int id; 
+	
 	private String userId;
 	
 	private String password;
@@ -191,6 +194,14 @@ public class ManufactureRegistrationDTO {
 
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

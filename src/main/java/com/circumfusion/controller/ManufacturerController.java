@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.circumfusion.dto.ManufactureRegistrationDTO;
 import com.circumfusion.dto.ManufacturerFinanceDTO;
 import com.circumfusion.dto.ManufacturerSupplierDTO;
 import com.circumfusion.dto.ManufacturerTechnicalDTO;
@@ -18,6 +19,18 @@ public class ManufacturerController
 {
 	@Autowired
 	ManufacturerService manufacturerService;
+	
+	@RequestMapping(value="/general", method= {RequestMethod.PUT})
+	public  void saveManufacturerGeneralInfo(@RequestBody ManufactureRegistrationDTO manufactureRegistrationDTO)
+	{
+		manufacturerService.saveManufacturerGeneralInfo(manufactureRegistrationDTO);
+	}
+	
+	@RequestMapping(value="/general/{orgId}", method= {RequestMethod.GET})
+	public  ManufactureRegistrationDTO getManufacturerGeneralInfo(@PathVariable("orgId") Integer orgId)
+	{
+		return manufacturerService.getManufacturerGeneralInfo(orgId);
+	}
 	
 	@RequestMapping(value="/finance", method= {RequestMethod.POST,RequestMethod.PUT})
 	public void saveManufacturerFinanceInfo(@RequestBody ManufacturerFinanceDTO manufacturerFinanceDTO)

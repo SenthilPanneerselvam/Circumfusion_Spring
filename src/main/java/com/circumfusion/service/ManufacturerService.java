@@ -8,20 +8,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.circumfusion.dto.ManufactureRegistrationDTO;
 import com.circumfusion.dto.ManufacturerFacilityDTO;
 import com.circumfusion.dto.ManufacturerFinanceDTO;
 import com.circumfusion.dto.ManufacturerSupplierDTO;
 import com.circumfusion.dto.ManufacturerTechnicalDTO;
+import com.circumfusion.entity.Manufacturer;
 import com.circumfusion.entity.ManufacturerFinance;
 import com.circumfusion.entity.ManufacturerSupplier;
 import com.circumfusion.entity.ManufacturerSupplierJobs;
 import com.circumfusion.entity.ManufacturerTechnical;
 import com.circumfusion.entity.ManufacturerTechnicalProducts;
+import com.circumfusion.entity.User;
+import com.circumfusion.exception.OrgAlreadyExistsException;
+import com.circumfusion.repo.ManufactureRepo;
 import com.circumfusion.repo.ManufacturerFinanceRepo;
 import com.circumfusion.repo.ManufacturerSupplierJobsRepo;
 import com.circumfusion.repo.ManufacturerSupplierRepo;
 import com.circumfusion.repo.ManufacturerTechnicalProductsRepo;
 import com.circumfusion.repo.ManufacturerTechnicalRepo;
+import com.circumfusion.repo.UserRepo;
 
 @Service
 @Transactional
@@ -44,6 +50,34 @@ public class ManufacturerService
 	
 	@Autowired
 	ManufacturerSupplierJobsRepo manufacturerSupplierJobsRepo;
+	
+	@Autowired
+	ManufactureRepo manufactureRepo;
+	
+	@Autowired
+	UserRepo userRepo;
+	
+	public void saveManufacturerGeneralInfo(ManufactureRegistrationDTO manufactureRegistrationDTO)
+	{
+	/*	String orgName = manufactureRegistrationDTO.getOrgName();
+		if(orgName != null && !orgName.isEmpty() &&  manufactureRepo.findByOrgName(orgName) != null)
+		{
+			throw new OrgAlreadyExistsException();
+		} */
+		//Get and set the user details
+		Manufacturer manufacturerTemp = manufactureRepo.findOne(manufactureRegistrationDTO.getId());
+		
+		Manufacturer manufacturer = beanMapper.map(manufactureRegistrationDTO, Manufacturer.class);
+		manufacturer.setUser(manufacturerTemp.getUser());
+		manufactureRepo.save(manufacturer);
+	}
+	
+	public ManufactureRegistrationDTO getManufacturerGeneralInfo(int orgId)
+	{
+		Manufacturer manufacturer = manufactureRepo.findOne(orgId);
+		ManufactureRegistrationDTO manufactureRegistrationDTO = beanMapper.map(manufacturer, ManufactureRegistrationDTO.class);
+		return manufactureRegistrationDTO;
+	}
 	
 	public void saveManufacturerFinanceInfo(ManufacturerFinanceDTO manufacturerFinanceDTO)
 	{
