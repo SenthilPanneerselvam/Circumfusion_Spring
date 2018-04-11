@@ -76,6 +76,7 @@ public class ManufacturerService
 	{
 		Manufacturer manufacturer = manufactureRepo.findOne(orgId);
 		ManufactureRegistrationDTO manufactureRegistrationDTO = beanMapper.map(manufacturer, ManufactureRegistrationDTO.class);
+		manufactureRegistrationDTO.setUserId(manufacturer.getUser().getUsername());
 		return manufactureRegistrationDTO;
 	}
 	
@@ -127,8 +128,12 @@ public class ManufacturerService
 		}
 		
 		ManufacturerSupplier manufacturerSupplier = manufacturerSupplierRepo.findByOrgId(orgId);
-		ManufacturerSupplierDTO manufacturerSupplierDTO = beanMapper.map(manufacturerSupplier, ManufacturerSupplierDTO.class);
-		manufacturerSupplierDTO.setTypeOfJobs(typeOfJobs);
+		ManufacturerSupplierDTO manufacturerSupplierDTO = null;
+		if(manufacturerSupplier != null) {
+			manufacturerSupplierDTO = beanMapper.map(manufacturerSupplier, ManufacturerSupplierDTO.class);
+			manufacturerSupplierDTO.setTypeOfJobs(typeOfJobs);
+		}
+		
 		return manufacturerSupplierDTO;
 	}
 	
